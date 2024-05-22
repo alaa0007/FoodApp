@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './Meals.module.css'
 import { currencyFormatter } from '../../utils/formatting'
+import Button from '../../UI/Button/Button'
 const MealItem = ({ meal }) => {
   return (
     <li className={classes['meal-item']}>
@@ -12,7 +13,7 @@ const MealItem = ({ meal }) => {
                 <p className={classes['meal-item-price']}>{currencyFormatter.format(meal.price)}</p>
             </div>
             <p className={classes['meal-item-actions']}>
-                <button>Add to cart</button>
+                <Button>Add to cart</Button>
             </p>
         </article>
     </li>
