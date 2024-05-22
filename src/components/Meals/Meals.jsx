@@ -3,7 +3,6 @@ import classes from './Meals.module.css'
 import { getMeals } from '../../service/mealService'
 import MealItem from './MealItem'
 
-
 const Meals = () => {
   const [mealsList, setMealsList] = useState([])
 
