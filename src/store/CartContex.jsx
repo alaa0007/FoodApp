@@ -37,7 +37,7 @@ const cartReducer = (state, action) => {
             return{
                 ...state,
                 items: removeItems,
-                totalAmount: state.totalAmount - +action.item.price
+                totalAmount: +state.totalAmount - +existingItem.price
             }
         default: return state;
     }
@@ -57,7 +57,6 @@ export const CartContextProvider = (props) => {
             dispatchCart({type: 'REMOVE_ITEM', id})
         }
     }
-    console.log(cartContext);
     return (
         <CartContext.Provider  value={cartContext}>
             {props.children}
