@@ -15,8 +15,12 @@ const Cart = () => {
         modalStateCtx.hideCart()
     }
 
+    const handleOpenCheckoutModal = () => {
+        modalStateCtx.ShowCheckout()
+    }
+
     return (
-        <Modal className='cart' open={modalStateCtx.progress === 'Cart'}>
+        <Modal className='cart' open={modalStateCtx.progress === 'Cart'} onClose={modalStateCtx.progress === 'Cart' ? handleHideCart : null}>
             <h2>Cart</h2>
             <ul>
                 {cartCtx.items.map(item => (
@@ -26,7 +30,9 @@ const Cart = () => {
             <p className='cart-total'> {currencyFormatter.format(cartCtx.totalAmount)} </p>
             <p className='modal-actions'>
                 <Button textOnly onClick={handleHideCart}>Close</Button>
-                <Button>Order Now</Button>
+                {
+                    cartCtx.items.length > 0 && <Button onClick={handleOpenCheckoutModal} >Order</Button>
+                }
             </p>
         </Modal>
     )

@@ -14,8 +14,19 @@ export const getMealById = async (id) => {
 }
 
 
-export const addMealToCart = async (id) => {
-    const resulat = await fetch(`http://localhost:3000/orders`);
+export const checkout = async (items, customer) => {
+    const resulat = await fetch(`http://localhost:3000/orders`, {
+        method: 'POST',
+        body: JSON.stringify({
+            order: {
+                items,
+                customer
+            }
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
     const meal = await resulat.json()
     return meal
 }

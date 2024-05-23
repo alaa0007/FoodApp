@@ -23,7 +23,6 @@ const CartItem = ({ id, name, quantity ,price }) => {
             <button onClick={handleRemoveItem}> - </button>
             <span> { quantity } </span>
             <button onClick={handleAddItem}> + </button>
-
         </p>
     </li>
   )
